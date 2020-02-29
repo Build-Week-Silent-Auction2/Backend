@@ -2,7 +2,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('items', tbl =>{
     tbl.increments();
-    tbl.string('itme_name', 100).notNullable();
+    tbl.string('item_name', 100).notNullable();
     tbl.string('description', 500).notNullable();
     tbl.string('img_url');
     tbl.float("price", 8, 2);

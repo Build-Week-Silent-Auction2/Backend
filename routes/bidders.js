@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const Bidder = require('../models/user');
+const Bidder = require('../models/users');
 const restricted = require('../middleware/restricted');
 
 router.get('/bidder', (req,res)=>{

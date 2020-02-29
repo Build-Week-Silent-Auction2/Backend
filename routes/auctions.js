@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const restriced = require('../middleware/restricted');
+const restricted = require('../middleware/restricted');
 
 const Auction = require('../models/auctions');
 
@@ -27,7 +27,7 @@ router.get('/auctions/:id', (req,res) =>{
   
 });
 
-router.post("/:sellerId/:itemId/auctions", restriced, (req,res) =>{
+router.post("/:sellerId/:itemId/auctions", restricted, (req,res) =>{
   const {sellerId, itemId} = req.params;
   const time = req.body;
   const {auction_start, auction_end} = time;
@@ -45,7 +45,7 @@ router.post("/:sellerId/:itemId/auctions", restriced, (req,res) =>{
   }
 });
 
-router.put("/auctions/:auctionId", restriced, (req,res) =>{
+router.put("/auctions/:auctionId", restricted, (req,res) =>{
   const {auctionId} = req.params.auctionId;
   const change = req.body;
   const {auction_end} = change;

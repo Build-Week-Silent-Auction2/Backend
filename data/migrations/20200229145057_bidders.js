@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
   return knex.schema.createTable('bidders', tbl =>{
-    tbl.incements();
+    tbl.increments();
     tbl.string('firstName').notNullable();
     tbl.string('lastName').notNullable();
     tbl

@@ -1,5 +1,5 @@
 
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const faker = require("faker");
 
 module.exports.seed = function(knex) {
@@ -13,7 +13,7 @@ module.exports.seed = function(knex) {
       state: faker.address.state(),
       zipCode: faker.address.zipCode(),
       username: "bidder1",
-      password: bcrypt.hashSync("1234")
+      password: bcrypt.hashSync("1234", 14)
     },
     {
       firstName: faker.name.firstName(),
@@ -24,7 +24,7 @@ module.exports.seed = function(knex) {
       state: faker.address.state(),
       zipCode: faker.address.zipCode(),
       username: "bidder2",
-      password: bcrypt.hashSync("1234")
+      password: bcrypt.hashSync("1234", 15)
     },
     {
       firstName: faker.name.firstName(),
@@ -35,7 +35,7 @@ module.exports.seed = function(knex) {
       state: faker.address.state(),
       zipCode: faker.address.zipCode(),
       username: "bidder3",
-      password: bcrypt.hashSync("1234")
+      password: bcrypt.hashSync("1234", 15)
     },
     {
       firstName: faker.name.firstName(),
@@ -46,7 +46,7 @@ module.exports.seed = function(knex) {
       state: faker.address.state(),
       zipCode: faker.address.zipCode(),
       username: "bidder4",
-      password: bcrypt.hashSync("1234")
+      password: bcrypt.hashSync("1234", 15)
     }
   ]);
 };
