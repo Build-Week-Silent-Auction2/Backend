@@ -1,27 +1,47 @@
-const db = require('../data/dbconfig');
+const db = require("../data/dbConfig");
 
-function get(table){
-
+function get(table) {
+  return db(table);
 }
 
-function getById(id){
-
+function getById(id) {
+  console.log(id);
+  return db("items").where({ id });
+}
+function getBySellerId(sellerId) {
+  return db("items as i")
+    .join("sellers as s", "i.seller_id", "s.id")
+    .select(
+      "s.firstName",
+      "s.lastName",
+      "s.email",
+      "i.id",
+      "i.item_name",
+      "i.description",
+      "i.img_url",
+      "i.price"
+    )
+    .where("i.seller_id", sellerId);
 }
 
-function getBySellerId(sellerId){
-
+function insert(sellerId, item) {
+  const addItem = {
+    ...item,
+    seller_id: sellerId
+  };
+  return db("items").insert(addItem);
 }
 
-function insert(sellerId, item){
-
+function update(id, changes) {
+  return db("items")
+    .where({ id })
+    .update(changes);
 }
 
-function update(id, changes){
-
-}
-
-function remove(id){
-
+function remove(id) {
+  return db("items")
+    .where({ id })
+    .del();
 }
 
 module.exports = {
@@ -31,4 +51,4 @@ module.exports = {
   insert,
   update,
   remove
-}
+};
