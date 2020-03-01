@@ -66,10 +66,4 @@ Item Info
 | GET    | Get all Bidders or Sellers      | /api/bidders, /api/sellers             | Just the request | Array          |
 | GET    | Specific Bidder or Seller       | /api/bidders/`:id`, /api/sellers/`:id` | ID               | Array          |
 
-## Deploy to Heroku
-
-[Postgres and Heroku](https://www.youtube.com/watch?v=4WECh9OVvgk)
-
-1. npx heroku run knex migrate:rollback -a (app name)
-2. npx heroku run knex migrate:latest -a (app name)
-3. npx heroku run knex seed:run -a (app name) 
+# If you have any trouble please contact me
