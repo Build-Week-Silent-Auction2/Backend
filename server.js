@@ -23,7 +23,7 @@ server.use("/api", sellersRouter);
 // * sanity
 
 server.get('/', (req,res) =>{
-  res.status(200).json(<h1>Hello World</h1>)
+  res.send(<h1>Hello World</h1>)
 });
 
 module.exports = server;
