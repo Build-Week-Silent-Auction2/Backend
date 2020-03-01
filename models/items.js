@@ -1,4 +1,4 @@
-const db = require('../data/dbconfig.js')
+const db = require('../data/dbconfig')
 
 function get(table) {
   return db(table);
