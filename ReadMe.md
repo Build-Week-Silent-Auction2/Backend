@@ -2,7 +2,7 @@
 
 ## Endpoints
 
-Base: https://silent-auction-bw2.herokuapp.com/
+Base: https://silent-auctionbw3.herokuapp.com/
 
 :userType = "bidders" or "sellers"
 
