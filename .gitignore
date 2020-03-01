@@ -107,3 +107,5 @@ dist
 .eslintrc.json
 
 data/test.db3
+
+.db3
