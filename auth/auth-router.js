@@ -5,7 +5,7 @@ const User = require('./auth-model');
 const GT = require('./generateToken');
 
 router.post("/register/:userType", (req,res) =>{
-  const {userType} = req.params.userType;
+  const userType = req.params.userType;
   const user = req.body;
   const token = GT(user.username);
   const hash = bcrypt.hashSync(user.password, 14);
@@ -17,7 +17,7 @@ router.post("/register/:userType", (req,res) =>{
 });
 
 router.post("/login/:userType", (req,res)=>{
-  const {userType} = req.params.userType;
+  const userType = req.params.userType;
   const {username, password} = req.body;
 
   User.findBy(userType, {username})
