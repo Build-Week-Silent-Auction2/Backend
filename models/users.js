@@ -60,11 +60,11 @@ function get(table, id) {
 function remove(table, id) {
   if (table === "bidders") {
     return db(table)
-      .where({ id })
+      .where('id', id )
       .del();
   } else {
     return db(table)
-      .where({ id })
+      .where('id', id )
       .del();
   }
 }
