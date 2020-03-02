@@ -66,4 +66,13 @@ Item Info
 | GET    | Get all Bidders or Sellers      | /api/bidders, /api/sellers             | Just the request | Array          |
 | GET    | Specific Bidder or Seller       | /api/bidders/`:id`, /api/sellers/`:id` | ID               | Array          |
 
+## Seed users
+
+| User Type | User Name | Password |
+|--------------|----------------|----------|
+| Bidder | bidder1 | 1234 |
+| Seller | seller1 | 1234 |
+
+*bidder and seller users go 1-5 e.g. bidder1,bidder2 ect.
+
 # If you have any trouble please contact me
