@@ -57,16 +57,22 @@ function get(table, id) {
   }
 }
 
+// function remove(table, id) {
+//   if (table === "bidders") {
+//     return db('bidders')
+//       .where( {id} )
+//       .del();
+//   } else {
+//     return db('sellers')
+//       .where( {id} )
+//       .del();
+//   }
+// }
+
 function remove(table, id) {
-  if (table === "bidders") {
-    return db('bidders')
-      .where( {id} )
-      .del();
-  } else {
-    return db('sellers')
-      .where( {id} )
-      .del();
-  }
+  return db(table)
+    .where( {id} )
+    .del();
 }
 
 module.exports = {
