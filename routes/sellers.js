@@ -22,7 +22,7 @@ router.delete("/sellers/:id", restricted, (req, res) => {
 
   Seller.remove("sellers", id)
     .then(() => res.status(200).json({ message: "seller removed" }))
-    .catch(error => res.status(500).json(error.message));
+    .catch(error => res.status(500).json(error));
 });
 
 module.exports = router;
