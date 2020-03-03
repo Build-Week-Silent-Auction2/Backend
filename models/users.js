@@ -71,7 +71,7 @@ function get(table, id) {
 
 function remove(table, id) {
   return db(table)
-    .where( {id} )
+    .where( "id", id )
     .del();
 }
 
