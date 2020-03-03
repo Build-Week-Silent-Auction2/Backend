@@ -21,9 +21,13 @@ Base URL: https://silent-auctionbw3.herokuapp.com/
 }
 ```
 
-## Token = res.data.token
-## User Object = res.data.user
-### *password will be returned as ""*
+## ON RESPONSE
+````
+ Token = res.data.token
+ User Object = res.data.userInfo
+
+ Note: password will be returned ""
+````
 <br></br>
 
 #### Sellers - /auth/register/:userType  (userType = bidders) --- /auth/register/sellers
@@ -35,9 +39,13 @@ Base URL: https://silent-auctionbw3.herokuapp.com/
 }
 ```
 
-## Token = res.data.token
-## User Object = res.data.user
-### *password will be returned as ""*
+## ON RESPONSE
+````
+ Token = res.data.token
+ User Object = res.data.userInfo
+
+ Note: password will be returned ""
+````
 <br></br>
 <br></br>
 <br></br>
@@ -65,7 +73,7 @@ Base URL: https://silent-auctionbw3.herokuapp.com/
 ## ON RESPONSE
 ````
  Token = res.data.token
- User Object = res.data.newUser
+ User Object = res.data.userInfo
 
  Note: password will be returned ""
 ````
@@ -92,7 +100,7 @@ Base URL: https://silent-auctionbw3.herokuapp.com/
 ## ON RESPONSE
 ````
  Token = res.data.token
- User Object = res.data.user
+ User Object = res.data.userInfo
 
  Note: password will be returned ""
 ````
