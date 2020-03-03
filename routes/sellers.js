@@ -18,7 +18,7 @@ router.get("/sellers/:id", (req, res) => {
 });
 
 router.delete("/sellers/:id", restricted, (req, res) => {
-  const { id } = req.params.id;
+  const  id  = req.params.id;
 
   Seller.remove("sellers", id)
     .then(() => res.status(200).json({ message: "seller removed" }))
