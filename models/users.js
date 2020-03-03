@@ -57,14 +57,14 @@ function get(table, id) {
   }
 }
 
-function remove(table, nid) {
+function remove(table, id) {
   if (table === "bidders") {
     return db('bidders')
-      .where({id: nid} )
+      .where( {id} )
       .del();
   } else {
     return db('sellers')
-      .where({ id: nid} )
+      .where( {id} )
       .del();
   }
 }
