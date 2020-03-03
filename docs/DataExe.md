@@ -119,7 +119,7 @@ Base URL: https://silent-auctionbw3.herokuapp.com/
 
 item_name Limit: 100 characters
 
-description Limit: 100 charaters
+description Limit: 500 charaters
 
 img_url (optional)
 ```javascript
@@ -143,7 +143,7 @@ convertion docs: https://www.w3schools.com/jsref/jsref_tojson.asp
 #### Update Item - /api/items/:itemId  (itemId = the items id) --- exe: /api/items/1
 item_name Limit: 100 characters
 
-description Limit: 100 charaters
+description Limit: 500 charaters
 
 img_url (optional)
 ```javascript
