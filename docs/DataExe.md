@@ -1,6 +1,4 @@
-<span style="color:green">Green text means the type of request</span>
-</br>
-<span style="color:yellow">Yellow text is url or sub url</span>
+[Back to ReadMe](../ReadMe.md)
 ### Table of Contents
 - Auth
   - [Logins](#Logins )
@@ -10,11 +8,11 @@
   - [Auctions](#Auctions-Restricted)
 
 # Logins
-### <span style="color:Green">POST</span>
+### POST
 
 Base URL: https://silent-auctionbw3.herokuapp.com/
 
-#### Bidders - <span style="color:yellow">/auth/register/:userType</span>  (userType = bidders) --- <span style="color:yellow">/auth/register/bidders
+#### Bidders - /auth/register/:userType  (userType = bidders) --- /auth/register/bidders
 
 ```javascript
 {
@@ -25,10 +23,10 @@ Base URL: https://silent-auctionbw3.herokuapp.com/
 
 ## Token = res.data.token
 ## User Object = res.data.user
-### password will be returned as Hashed code
+### *password will be returned as ""*
 <br></br>
 
-#### Sellers - <span style="color:yellow">/auth/register/:userType</span>  (userType = bidders) --- <span style="color:yellow">/auth/register/sellers
+#### Sellers - /auth/register/:userType  (userType = bidders) --- /auth/register/sellers
 
 ```javascript
 {
@@ -39,17 +37,17 @@ Base URL: https://silent-auctionbw3.herokuapp.com/
 
 ## Token = res.data.token
 ## User Object = res.data.user
-### *password will be returned as Hashed code*
+### *password will be returned as ""*
 <br></br>
 <br></br>
 <br></br>
 # Registers
 
-### <span style="color:Green">POST</span>
+### POST
 
 Base URL: https://silent-auctionbw3.herokuapp.com/
 
-#### Bidders - <span style="color:yellow">/auth/register/:userType</span>  (userType = bidders) --- <span style="color:yellow">/auth/register/bidders
+#### Bidders - /auth/register/:userType  (userType = bidders) --- /auth/register/bidders
 
 ```javascript
 {
@@ -64,13 +62,18 @@ Base URL: https://silent-auctionbw3.herokuapp.com/
 	password:"Password"
 }
 ```
+## ON RESPONSE
+````
+ Token = res.data.token
+ User Object = res.data.newUser
 
-## Token = res.data.token
-## User Object = res.data.newUser
-### *password will be returned as Hashed code*
+ Note: password will be returned ""
+````
 <br></br>
 
-#### Sellers - <span style="color:yellow">/auth/register/:userType</span>  (userType = bidders) --- <span style="color:yellow">/auth/register/sellers
+### POST
+
+#### Sellers - /auth/register/:userType  (userType = bidders) --- /auth/register/sellers
 
 ```javascript
 {
@@ -86,9 +89,13 @@ Base URL: https://silent-auctionbw3.herokuapp.com/
 }
 ```
 
-## Token = res.data.token
-## User Object = res.data.newUser
-### *password will be returned as Hashed code*
+## ON RESPONSE
+````
+ Token = res.data.token
+ User Object = res.data.user
+
+ Note: password will be returned ""
+````
 
 <br></br>
 <br></br>
@@ -98,9 +105,9 @@ Base URL: https://silent-auctionbw3.herokuapp.com/
 
 Base URL: https://silent-auctionbw3.herokuapp.com/
 
-### <span style="color:Green">POST</span>
+### POST
 
-#### Add Item - <span style="color:yellow">/api/:sellerId/items</span>  (sellerId = id of seller userId) --- exe: <span style="color:yellow">/api/1/items</span>
+#### Add Item - /api/:sellerId/items (sellerId = id of seller userId) --- exe: /api/1/items
 
 item_name Limit: 100 characters
 
@@ -123,9 +130,9 @@ convertion docs: https://www.w3schools.com/jsref/jsref_tojson.asp
 <br></br>
 <br></br>
 
-### <span style="color:Green">PUT</span>
+### PUT
 
-#### Update Item - <span style="color:yellow">/api/items/:itemId</span>  (itemId = the items id) --- exe: <span style="color:yellow">/api/items/1</span>
+#### Update Item - /api/items/:itemId  (itemId = the items id) --- exe: /api/items/1
 item_name Limit: 100 characters
 
 description Limit: 100 charaters
@@ -149,9 +156,9 @@ convertion docs: https://www.w3schools.com/jsref/jsref_tojson.asp
 <br></br>
 <br></br>
 
-### <span style="color:Green">Delete</span>
+### DELETE
 
-#### Update Item - <span style="color:yellow">/api/items/:itemId</span>  (itemId = the items id) --- exe: <span style="color:yellow">/api/items/1</span>
+#### Update Item - /api/items/:itemId  (itemId = the items id) --- exe: /api/items/1
 
 ```javascript
 No Body Required.
@@ -162,9 +169,9 @@ No Body Required.
 
 # Auctions-Restricted
 
-### <span style="color:Green">POST</span>
+### POST
 
-#### Add Auction - <span style="color:yellow">/api/:sellerId/:itemId/auctions</span>  (sellerId = id of seller userid, itemId = id of item being sold) --- exe: <span style="color:yellow">/api/1/1/auctions</span>
+#### Add Auction - /api/:sellerId/:itemId/auctions  (sellerId = id of seller userid, itemId = id of item being sold) --- exe: /api/1/1/auctions
 
 bidder_id not required on post or put unless the bidder is making a bid.
 
@@ -178,13 +185,13 @@ bidder_id not required on post or put unless the bidder is making a bid.
 <br></br>
 <br></br>
 
-### <span style="color:Green">PUT</span>
+### PUT
 
-#### Add Auction - <span style="color:yellow">/api/auctions/:auctionId</span>  (auctionId = auctions id) --- exe: <span style="color:yellow">/api/auctions/1</span>
+#### Update Auction - /api/auctions/:auctionId  (auctionId = auctions id) --- exe: /api/auctions/1
 
 bidder_id not required on post or put unless the bidder is making a bid.
 
-After updating bidder_id make sure to do a <span style="color:green">PUT</span> Request to item to change price
+After updating bidder_id make sure to do a PUT Request to item to change price
 
 ```javascript
 {
@@ -194,4 +201,15 @@ After updating bidder_id make sure to do a <span style="color:green">PUT</span> 
 }
 ```
 
-*Note: auction_start is not required on a <span style="color:green">PUT</span> Request*
+*Note: auction_start is not required on a PUT Request*
+
+<br></br>
+<br></br>
+
+### DELETE
+
+#### Delete Auction - /api/auctions/:auctionId  (auctionId = auctions id) --- exe: /api/auctions/1
+
+```javascript
+No Body Required.
+```
