@@ -12,7 +12,13 @@ router.post("/register/:userType", (req,res) =>{
   user.password = hash;
 
   User.insert(userType, user)
-    .then(newUser => res.status(201).json({message: "Registration successful", newUser, token}))
+    .then(newUser =>{ 
+      userInfo = {
+        ...newUser,
+        password: ""
+      }
+      res.status(201).json({message: "Registration successful", userInfo, token})
+    })
     .catch(error => res.status(500).json(error.message));
 });
 
@@ -25,7 +31,11 @@ router.post("/login/:userType", (req,res)=>{
     .then(user => {
       if(user && bcrypt.compareSync(password, user.password)){
         const token = GT(user.username);
-        res.status(200).json({message: `welcome ${user.username}`, user, token});
+        userInfo = {
+          ...user,
+          password: ""
+        }
+        res.status(200).json({message: `welcome ${user.username}`, userInfo, token});
       } else {
         res.status(401).json({error: "Invalid Credenials"});
       }

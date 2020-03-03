@@ -1,8 +1,12 @@
 # Silent Auction
 
+What server is expecting from axios requests: [here](docs/DataExe.md)
+
 ## Endpoints
 
 Base: https://silent-auctionbw3.herokuapp.com/
+
+
 
 :userType = "bidders" or "sellers"
 
@@ -10,8 +14,8 @@ Base: https://silent-auctionbw3.herokuapp.com/
 
 | Method | Type     | Endpoint                   | Send                                | Returns                                                                               |
 | ------ | -------- | -------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------- |
-| POST   | Register | /auth/register/`:userType` | See below                           | Message: `res.data.message`, Token: `res.data.token`, User object: `res.data.newUser` |
-| POST   | Login    | /auth/login/`:userType`    | JSON with "username" and "password" | Message: `res.data.message`, Token: `res.data.token`, User object: `res.data.user`    |
+| POST   | Register | /auth/register/`:userType` | See below                           | Message: `res.data.message`, Token: `res.data.token`, User object: `res.data.userInfo` |
+| POST   | Login    | /auth/login/`:userType`    | JSON with "username" and "password" | Message: `res.data.message`, Token: `res.data.token`, User object: `res.data.userInfo`    |
 
 Registration info:
 
@@ -98,3 +102,4 @@ Auction Info
 *bidder and seller users go 1-5 e.g. bidder1,bidder2 ect.
 
 # If you have any trouble please contact me
+
