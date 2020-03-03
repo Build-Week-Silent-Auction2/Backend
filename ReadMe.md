@@ -4,6 +4,8 @@
 
 Base: https://silent-auctionbw3.herokuapp.com/
 
+
+
 :userType = "bidders" or "sellers"
 
 ### Auth Routes
@@ -98,3 +100,4 @@ Auction Info
 *bidder and seller users go 1-5 e.g. bidder1,bidder2 ect.
 
 # If you have any trouble please contact me
+
