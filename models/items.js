@@ -32,6 +32,10 @@ function insert(sellerId, item) {
   return db("items").insert(addItem);
 }
 
+function findBy(Item){
+  return db("items").where(item);
+}
+
 function update(id, changes) {
   return db("items")
     .where({ id })
@@ -47,6 +51,7 @@ function remove(id) {
 module.exports = {
   get,
   getById,
+  findBy,
   getBySellerId,
   insert,
   update,

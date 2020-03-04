@@ -37,7 +37,12 @@ router.post("/:sellerId/items", restricted, (req, res) => {
       .json({ message: "Please fill in the required information" });
   } else {
     Item.insert(sellerId, item)
-      .then(() => res.status(201).json({ message: "item added" }))
+      .then(newItem =>{
+        Item.findBy(item)
+        .then(itemInfo =>{
+          res.status(201).json({message: "item added", itemInfo})
+        })
+      })
       .catch(error => res.status(500).json(error.message));
   }
 });
