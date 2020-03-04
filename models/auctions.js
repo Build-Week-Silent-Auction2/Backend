@@ -5,6 +5,7 @@ function get() {
     .join("sellers as s", "a.seller_id", "s.id")
     .join("items as i", "a.item_id", "i.id")
     .select(
+      "a.id",
       "s.firstName",
       "s.lastName",
       "s.email",
@@ -22,6 +23,7 @@ function getBySellerId(sellerId) {
     .join("sellers as s", "a.seller_id", "s.id")
     .join("items as i", "a.item_id", "i.id")
     .select(
+      "a.id",
       "s.firstName",
       "s.lastName",
       "s.email",
@@ -40,6 +42,7 @@ function getByAuctionId(id) {
     .join("sellers as s", "a.seller_id", "s.id")
     .join("items as i", "a.item_id", "i.id")
     .select(
+      "a.id",
       "s.firstName",
       "s.lastName",
       "s.email",
