@@ -11,7 +11,7 @@ router.get('/auctions', (req,res)=>{
 });
 
 router.get('/:sellerId/auctions', (req,res)=>{
-  const {sellerId} = req.params.sellerId;
+  const sellerId = req.params.sellerId;
 
   Auction.getBySellerId(sellerId)
     .then(auctions => res.status(200).json({auctions}))
@@ -19,7 +19,7 @@ router.get('/:sellerId/auctions', (req,res)=>{
 });
 
 router.get('/auctions/:id', (req,res) =>{
-  const {id} = req.params.id;
+  const id = req.params.id;
 
   Auction.getByAuctionId(id)
     .then(auction => res.status(200).json({auction}))
@@ -37,16 +37,25 @@ router.post("/:sellerId/:itemId/auctions", restricted, (req,res) =>{
       .status(400)
       .json({ message: "Please fill in the required information" });
   } else {
-    Auction.insert(sellerId, itemId, time)
+    if(req.body.bidder_id)
+    {
+      Auction.insertwb(sellerId, itemId, time, req.body.bidder_id)
       .then(newAuction =>
         res.status(201).json({message: "auction created", newAuction})
       )
       .catch(error => res.status(500).json(error.message));
+    }else{
+      Auction.insert(sellerId, itemId, time)
+        .then(newAuction =>
+          res.status(201).json({message: "auction created", newAuction})
+        )
+        .catch(error => res.status(500).json(error.message));
+    }
   }
 });
 
 router.put("/auctions/:auctionId", restricted, (req,res) =>{
-  const {auctionId} = req.params.auctionId;
+  const auctionId = req.params.auctionId;
   const change = req.body;
   const {auction_end} = change;
 
@@ -60,7 +69,7 @@ router.put("/auctions/:auctionId", restricted, (req,res) =>{
 })
 
 router.delete("/auctions/:auctionId", restricted, (req, res) => {
-  const { auctionId } = req.params;
+  const  auctionId  = req.params;
 
   Auction.remove(auctionId)
     .then(() => res.status(200).json({ message: "auction removed" }))

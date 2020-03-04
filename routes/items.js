@@ -11,7 +11,7 @@ router.get("/items", (req, res) => {
 });
 
 router.get("/items/:id", (req, res) => {
-  const { id } = req.params.id;
+  const  id  = req.params.id;
 
   Item.getById(id)
     .then(item => res.status(200).json({ item }))
@@ -19,7 +19,7 @@ router.get("/items/:id", (req, res) => {
 });
 
 router.get("/:sellerId/items", (req, res) => {
-  const { sellerId } = req.params.sellerId;
+  const  sellerId  = req.params.sellerId;
 
   Item.getBySellerId(sellerId)
     .then(items => res.status(200).json({ items }))
@@ -27,7 +27,7 @@ router.get("/:sellerId/items", (req, res) => {
 });
 
 router.post("/:sellerId/items", restricted, (req, res) => {
-  const { sellerId } = req.params.sellerId;
+  const  sellerId  = req.params.sellerId;
   const item = req.body;
   const { item_name, description, price, item_end_time } = item;
 
@@ -43,7 +43,7 @@ router.post("/:sellerId/items", restricted, (req, res) => {
 });
 
 router.put("/items/:itemId", restricted, (req, res) => {
-  const { itemId } = req.params.itemId;
+  const  itemId  = req.params.itemId;
   const changes = req.body;
   const { item_name, description, price, item_end_time } = changes;
 
@@ -61,7 +61,7 @@ router.put("/items/:itemId", restricted, (req, res) => {
 });
 
 router.delete("/items/:itemId", restricted, (req, res) => {
-  const { itemId } = req.params.itemId;
+  const  itemId  = req.params.itemId;
 
   Item.remove(itemId)
     .then(() => res.status(200).json({ message: "Item removed" }))
