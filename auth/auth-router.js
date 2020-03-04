@@ -7,19 +7,22 @@ const GT = require('./generateToken');
 router.post("/register/:userType", (req,res) =>{
   const userType = req.params.userType;
   const user = req.body;
+  const {username} = user;
   const token = GT(user.username);
   const hash = bcrypt.hashSync(user.password, 14);
   user.password = hash;
 
   User.insert(userType, user)
     .then(newUser =>{ 
-      console.log(newUser)
-      userInfo = {
-        id: newUser,
-        ...user,
-      }
-      delete userInfo.password;
-      res.status(201).json({message: "Registration successful", userInfo, token})
+      User.findBy(userType, {username})
+      .first()
+      .then(user => {
+        userInfo = {
+          ...user,
+        }
+        delete userInfo.password;
+        res.status(201).json({message: "Registration successful", userInfo, token})
+      })
     })
     .catch(error => res.status(500).json(error.message));
 });
