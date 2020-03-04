@@ -18,7 +18,7 @@ router.get("/bidders/:id", (req, res) => {
 });
 
 router.delete("/bidders/:id", restricted, (req, res) => {
-  const { id } = req.params.id;
+  const  id  = req.params.id;
 
   Bidder.remove("bidders", id)
     .then(() => res.status(200).json({ message: "bidder removed" }))
