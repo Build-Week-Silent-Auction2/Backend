@@ -15,9 +15,10 @@ router.post("/register/:userType", (req,res) =>{
     .then(newUser =>{ 
       console.log(newUser)
       userInfo = {
+        id: newUser[0],
         ...user,
-        password: ""
       }
+      delete userInfo.password;
       res.status(201).json({message: "Registration successful", userInfo, token})
     })
     .catch(error => res.status(500).json(error.message));
@@ -34,9 +35,9 @@ router.post("/login/:userType", (req,res)=>{
         const token = GT(user.username);
         userInfo = {
           ...user,
-          password: ""
         }
-        res.status(200).json({message: `welcome ${user.username}`, userInfo, token});
+        delete userInfo.password;
+        res.status(200).json({message: `welcome ${user.username}`, userInfo: userInfo, token});
       } else {
         res.status(401).json({error: "Invalid Credenials"});
       }
