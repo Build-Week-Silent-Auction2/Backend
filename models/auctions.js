@@ -68,6 +68,10 @@ function insert(sellerId, itemId, time) {
   return db("auctions").insert(newAuction);
 }
 
+function findBy(auction){
+  return db('auctions').where(auction);
+}
+
 function insertwb(sellerId, itemId, time, bidder) {
   const newAuction = {
     ...time,
@@ -94,6 +98,7 @@ module.exports = {
   get,
   getBySellerId,
   getByAuctionId,
+  findBy,
   insert,
   insertwb,
   update,

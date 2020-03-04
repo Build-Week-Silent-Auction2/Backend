@@ -41,13 +41,19 @@ router.post("/:sellerId/:itemId/auctions", restricted, (req,res) =>{
     {
       Auction.insertwb(sellerId, itemId, time, req.body.bidder_id)
       .then(newAuction =>
-        res.status(201).json({message: "auction created", newAuction})
+        Auction.findBy(time)
+        .then(auctionInfo =>{
+          res.status(201).json({message: "auction created", auctionInfo})
+        })
       )
       .catch(error => res.status(500).json(error.message));
     }else{
       Auction.insert(sellerId, itemId, time)
         .then(newAuction =>
-          res.status(201).json({message: "auction created", newAuction})
+          Auction.findBy(time)
+          .then(auctionInfo =>{
+            res.status(201).json({message: "auction created", auctionInfo})
+          })
         )
         .catch(error => res.status(500).json(error.message));
     }
