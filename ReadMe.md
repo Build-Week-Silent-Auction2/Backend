@@ -86,8 +86,8 @@ Auction Info
 | GET    | Get item with specified ID      | /api/items/`:id`                       | Item ID          | Item Array     |
 | GET    | Get items from specified Seller | /api/`:sellerId`/items                 | Seller ID        | Items Array    |
 | GET    | Get all auctions                | /api/auctions                          | Just the request | Auctions Array |
-| GET    | Get specified auction           | /api/auctions/:id                      | Seller ID        | Auctions Array |
-| GET    | Get specified seller's auctions | /api/`:sellerId`/auctions              | Auction ID       | Auction Array  |
+| GET    | Get specified auction           | /api/auctions/:id                      | Auction ID        | Auctions Array |
+| GET    | Get specified seller's auctions | /api/`:sellerId`/auctions              | Seller ID       | Auction Array  |
 | GET    | Get all Bidders or Sellers      | /api/bidders, /api/sellers             | Just the request | Array          |
 | GET    | Specific Bidder or Seller       | /api/bidders/`:id`, /api/sellers/`:id` | ID               | Array          |
 
