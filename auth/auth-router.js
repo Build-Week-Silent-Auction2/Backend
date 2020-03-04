@@ -15,7 +15,7 @@ router.post("/register/:userType", (req,res) =>{
     .then(newUser =>{ 
       console.log(newUser)
       userInfo = {
-        id: newUser[0],
+        id: newUser,
         ...user,
       }
       delete userInfo.password;
