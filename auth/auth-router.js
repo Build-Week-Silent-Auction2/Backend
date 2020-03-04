@@ -13,8 +13,9 @@ router.post("/register/:userType", (req,res) =>{
 
   User.insert(userType, user)
     .then(newUser =>{ 
+      console.log(newUser)
       userInfo = {
-        ...newUser,
+        ...user,
         password: ""
       }
       res.status(201).json({message: "Registration successful", userInfo, token})
