@@ -128,13 +128,13 @@ img_url (optional)
   desciption:"itemDescription",
   img_url:"http:/unsplash.io/",
   price:25.15,
-  item_end_time:"2019-09-29T00:00:54.047Z",
+  item_end_time:158642514235,
   seller_id:1
 }
 ```
-*Note: You will need to convert your dateTime to JSON for item_end_time. check link below for help*
+*Note: You will need to convert your dateTime to valueOf using date.valueOf() for item_end_time. check link below for help*
 
-convertion docs: https://www.w3schools.com/jsref/jsref_tojson.asp
+convertion docs: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/valueOf
 <br></br>
 <br></br>
 
@@ -152,14 +152,14 @@ img_url (optional)
   desciption:"itemDescription",
   img_url:"http:/unsplash.io/",
   price:25.15,
-  item_end_time:"2019-09-29T00:00:54.047Z",
+  item_end_time:158642514235,
   seller_id:1
 }
 ```
 
-*Note: You will need to convert your dateTime to JSON for item_end_time. check link below for help*
+*Note: You will need to convert your dateTime to valueOf using date.valueOf() for item_end_time. check link below for help*
 
-convertion docs: https://www.w3schools.com/jsref/jsref_tojson.asp
+convertion docs: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/valueOf
 
 <br></br>
 <br></br>
@@ -183,10 +183,12 @@ No Body Required.
 
 bidder_id not required on post or put unless the bidder is making a bid.
 
+auction_start and auction_end are required
+
 ```javascript
 {
-  auction_start:"2019-09-29T00:00:54.047Z",
-  auction_end:"2020-03-17T13:40:32.363Z",
+  auction_start:158642514235,
+  auction_end:158644678911,
   bidder_id:1,
 }
 ```
@@ -203,13 +205,12 @@ After updating bidder_id make sure to do a PUT Request to item to change price
 
 ```javascript
 {
-  auction_start:"2019-09-29T00:00:54.047Z",
-  auction_end:"2020-03-17T13:40:32.363Z",
+  auction_start:158642514235,
+  auction_end:158644678911,
   bidder_id:1,
 }
 ```
-
-*Note: auction_start is not required on a PUT Request*
+*Note: you can also change other properties of the auction within the body of your axios PUT request but the only 2 required are the auction_start and auction_end.*
 
 <br></br>
 <br></br>
