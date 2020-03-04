@@ -32,7 +32,7 @@ function insert(sellerId, item) {
   return db("items").insert(addItem);
 }
 
-function findBy(Item){
+function findBy(item){
   return db("items").where(item);
 }
 
