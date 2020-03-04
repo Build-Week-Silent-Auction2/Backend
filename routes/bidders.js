@@ -3,7 +3,7 @@ const router = require('express').Router();
 const Bidder = require('../models/users');
 const restricted = require('../middleware/restricted');
 
-router.get('/bidder', (req,res)=>{
+router.get('/bidders', (req,res)=>{
   Bidder.get('bidders', null)
     .then(bidders => res.status(200).json({bidders}))
     .catch(error => res.status(500).json(error.message));
